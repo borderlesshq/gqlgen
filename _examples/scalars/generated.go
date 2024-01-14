@@ -98,14 +98,14 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "Address.id":
+	case "address.id":
 		if e.complexity.Address.ID == nil {
 			break
 		}
 
 		return e.complexity.Address.ID(childComplexity), true
 
-	case "Address.location":
+	case "address.location":
 		if e.complexity.Address.Location == nil {
 			break
 		}
@@ -438,7 +438,7 @@ func (ec *executionContext) _Address_id(ctx context.Context, field graphql.Colle
 
 func (ec *executionContext) fieldContext_Address_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "Address",
+		Object:     "address",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -479,7 +479,7 @@ func (ec *executionContext) _Address_location(ctx context.Context, field graphql
 
 func (ec *executionContext) fieldContext_Address_location(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "Address",
+		Object:     "address",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -1278,7 +1278,7 @@ func (ec *executionContext) fieldContext_User_address(ctx context.Context, field
 			case "location":
 				return ec.fieldContext_Address_location(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type Address", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type address", field.Name)
 		},
 	}
 	return fc, nil
@@ -3150,7 +3150,7 @@ func (ec *executionContext) unmarshalInputSearchArgs(ctx context.Context, obj in
 
 // region    **************************** object.gotpl ****************************
 
-var addressImplementors = []string{"Address"}
+var addressImplementors = []string{"address"}
 
 func (ec *executionContext) _Address(ctx context.Context, sel ast.SelectionSet, obj *model.Address) graphql.Marshaler {
 	fields := graphql.CollectFields(ec.OperationContext, sel, addressImplementors)
@@ -3159,7 +3159,7 @@ func (ec *executionContext) _Address(ctx context.Context, sel ast.SelectionSet, 
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("Address")
+			out.Values[i] = graphql.MarshalString("address")
 		case "id":
 
 			out.Values[i] = ec._Address_id(ctx, field, obj)

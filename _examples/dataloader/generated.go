@@ -105,21 +105,21 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "Address.country":
+	case "address.country":
 		if e.complexity.Address.Country == nil {
 			break
 		}
 
 		return e.complexity.Address.Country(childComplexity), true
 
-	case "Address.id":
+	case "address.id":
 		if e.complexity.Address.ID == nil {
 			break
 		}
 
 		return e.complexity.Address.ID(childComplexity), true
 
-	case "Address.street":
+	case "address.street":
 		if e.complexity.Address.Street == nil {
 			break
 		}
@@ -407,7 +407,7 @@ func (ec *executionContext) _Address_id(ctx context.Context, field graphql.Colle
 
 func (ec *executionContext) fieldContext_Address_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "Address",
+		Object:     "address",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -451,7 +451,7 @@ func (ec *executionContext) _Address_street(ctx context.Context, field graphql.C
 
 func (ec *executionContext) fieldContext_Address_street(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "Address",
+		Object:     "address",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -495,7 +495,7 @@ func (ec *executionContext) _Address_country(ctx context.Context, field graphql.
 
 func (ec *executionContext) fieldContext_Address_country(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "Address",
+		Object:     "address",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -637,7 +637,7 @@ func (ec *executionContext) fieldContext_Customer_address(ctx context.Context, f
 			case "country":
 				return ec.fieldContext_Address_country(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type Address", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type address", field.Name)
 		},
 	}
 	return fc, nil
@@ -3000,7 +3000,7 @@ func (ec *executionContext) fieldContext___Type_specifiedByURL(ctx context.Conte
 
 // region    **************************** object.gotpl ****************************
 
-var addressImplementors = []string{"Address"}
+var addressImplementors = []string{"address"}
 
 func (ec *executionContext) _Address(ctx context.Context, sel ast.SelectionSet, obj *Address) graphql.Marshaler {
 	fields := graphql.CollectFields(ec.OperationContext, sel, addressImplementors)
@@ -3009,7 +3009,7 @@ func (ec *executionContext) _Address(ctx context.Context, sel ast.SelectionSet, 
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("Address")
+			out.Values[i] = graphql.MarshalString("address")
 		case "id":
 
 			out.Values[i] = ec._Address_id(ctx, field, obj)
